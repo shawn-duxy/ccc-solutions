@@ -12,8 +12,8 @@ public class Senior1 {
         int x = Integer.parseInt(tokens.nextToken());
         int y = Integer.parseInt(tokens.nextToken());
 
-        long area1 = (a + x) + Math.max(b, y);
-        long area2 = (b + y) + Math.max(a, x);
+        int area1 = (a + x) + Math.max(b, y);
+        int area2 = (b + y) + Math.max(a, x);
 
         System.out.println(2 * Math.min(area1, area2));
     }
