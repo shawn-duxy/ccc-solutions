@@ -19,7 +19,7 @@ int main() {
   int r, c, m;
   cin >> r >> c >> m;
 
-  auto grid = vector<vector<int>>(r);
+  vector<vector<int>> grid(r);
   int tile = 1;
   for (int i = 0; i < r; i++) {
     for (int j = 0; j < c; j++) {

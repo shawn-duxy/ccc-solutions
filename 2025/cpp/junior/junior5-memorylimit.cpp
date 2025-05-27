@@ -5,7 +5,7 @@ int main() {
   int r, c, m;
   cin >> r >> c >> m;
 
-  auto grid = vector<vector<int>>(r);
+  vector<vector<int>> grid(r);
   int tile = 1;
   for (int i = 0; i < r; i++) {
     for (int j = 0; j < c; j++) {
@@ -17,7 +17,7 @@ int main() {
     }
   }
 
-  auto path = vector<vector<int>>(r);
+  vector<vector<int>> path(r);
   for (int i = r - 1; i >= 0; i--) {
     for (int j = 0; j < c; j++) {
       if (i == r - 1) {

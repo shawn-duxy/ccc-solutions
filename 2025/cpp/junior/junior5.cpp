@@ -5,7 +5,7 @@ int main() {
   int r, c, m;
   cin >> r >> c >> m;
 
-  auto row = vector<int>();
+  vector<int> row{};
   int tile = (r - 1) * c % m + 1;
   for (int i = 0; i < c; i++) {
     row.push_back(tile);
@@ -13,7 +13,7 @@ int main() {
   }
 
   for (int i = r - 2; i >= 0; i--) {
-    auto nextRow = vector<int>();
+    vector<int> nextRow{};
     for (int j = 0; j < c; j++) {
       int smallest = row[j];
       if (j > 0) {

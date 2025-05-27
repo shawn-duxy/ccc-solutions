@@ -5,7 +5,7 @@ int main() {
   int n;
   cin >> n;
 
-  auto weather = vector<pair<string, int>>();
+  vector<pair<string, int>> weather{};
   string current;
   cin >> current;
   int count = 1;
@@ -15,12 +15,12 @@ int main() {
     if (current == w) {
       count++;
     } else {
-      weather.push_back(make_pair(current, count));
+      weather.emplace_back(current, count);
       current = w;
       count = 1;
     }
   }
-  weather.push_back(make_pair(current, count));
+  weather.emplace_back(current, count);
 
   if (weather.size() == 1 && weather[0].first == "S") {
     cout << weather[0].second - 1;
@@ -28,7 +28,7 @@ int main() {
   }
 
   int ans = 1;
-  for (unsigned int i = 0; i < weather.size(); i++) {
+  for (int i = 0; i < weather.size(); i++) {
     if (weather[i].first == "S") {
       ans = max(ans, weather[i].second);
     } else if (weather[i].first == "P" && weather[i].second == 1) {
