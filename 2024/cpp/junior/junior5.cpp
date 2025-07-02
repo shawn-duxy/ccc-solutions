@@ -5,23 +5,23 @@ int main() {
     int r, c;
     cin >> r >> c;
 
-    vector<vector<int>> patch(r);
+    vector<vector<int>> patch(r, vector<int>(c));
     for (int i = 0; i < r; i++) {
         string row;
         cin >> row;
         for (int j = 0; j < c; j++) {
             switch (row[j]) {
                 case 'S':
-                    patch[i].push_back(1);
+                    patch[i][j] = 1;
                     break;
                 case 'M':
-                    patch[i].push_back(5);
+                    patch[i][j] = 5;
                     break;
                 case 'L':
-                    patch[i].push_back(10);
+                    patch[i][j] = 10;
                     break;
                 default:
-                    patch[i].push_back(-1);
+                    patch[i][j] = -1;
             }
         }
     }
