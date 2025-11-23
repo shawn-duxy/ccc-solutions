@@ -19,7 +19,7 @@ int find(int u) {
 
 long dijkstra(int n, int s, int e) {
     vector<long> dist(n + 1, -1);
-    vector<bool> visited(n + 1, false);
+    unordered_set<int> visited{};
     priority_queue<pair<long, int>, vector<pair<long, int>>> pq;
 
     dist[s] = 0;
@@ -29,13 +29,13 @@ long dijkstra(int n, int s, int e) {
         int u = pq.top().second;
         pq.pop();
 
-        if (visited[u]) {
+        if (visited.find(u) != visited.end()) {
             continue;
         }
-        visited[u] = true;
+        visited.insert(u);
 
         for (auto i : matrix[u]) {
-            if (!visited[i.first] && dist[u] != -1 && (dist[i.first] == -1 || dist[u] + i.second < dist[i.first])) {
+            if (visited.find(i.first) == visited.end() && (dist[i.first] == -1 || dist[u] + i.second < dist[i.first])) {
                 dist[i.first] = dist[u] + i.second;
                 pq.emplace(-1 * dist[i.first], i.first);
             }
